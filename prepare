@@ -5,14 +5,14 @@ eval "$(rbenv init -)"
 
 set -e
 
-if [ -e /usr/artifacts/gems.tgz ]; then
+if [ -e /tmp/artifacts/gems.tgz ]; then
   pushd /;
-  tar zxvf /usr/artifacts/gems.tgz;
+  tar zxvf /tmp/artifacts/gems.tgz;
   popd;
 fi
 
 echo "Building your app"
 mkdir -p /opt/ruby/source/
 cd /opt/ruby/source/
-cp -Rf /usr/src/* .
+cp -Rf /tmp/src/* .
 GEM_HOME=/opt/ruby bundle install --path /opt/ruby/bundle/
